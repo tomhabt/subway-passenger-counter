@@ -1,9 +1,26 @@
 var countEl = document.getElementById("count-el");
-var incrementEl = document.getElementById("btn-inc");
-var saveEl = document.getElementById("btn-save");
+var savedEl = document.getElementById("saved-el");
+var incrementbtnEl = document.getElementById("btn-inc");
+var savebtnEl = document.getElementById("btn-save");
 
-console.log(countEl);
+let count = 0;
 
-function count () {
-    onclick(incrementEl)
-}
+function countUp () {
+    count ++
+    countEl.textContent = count
+};
+
+function save () {
+     localStorage.setItem("TotalCount", count)
+     console.log(count)
+    let countStr = count + " - " 
+     savedEl.textContent += countStr
+     countEl.textContent = 0
+     count = 0
+};
+
+save();
+
+
+
+    
